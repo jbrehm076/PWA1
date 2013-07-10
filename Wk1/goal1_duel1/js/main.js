@@ -22,8 +22,8 @@ alert(pOneName + ": " + pOneHp + " **START** " + pTwoName + ": " + pTwoHp);
 	//function variables p1Hp= player 1 health points, p1Max = player 1 max damage
 var fightFn = function(p1Hp, p1Max, p2Hp, p2Max){
 	
-	pOneHp = (p1Hp - p2Max);
-	pTwoHp = (p2Hp - p1Max);
+	pOneHp = (p1Hp - p2Max); //overwrite global variable for use in consequent functions.
+	pTwoHp = (p2Hp - p1Max); //overwrite global variable for use in consequent functions.
 	round++;
 	return round;
 };
