@@ -1,4 +1,6 @@
-// Assignment: The Duel - Part I, Jeramie Brehm 10JUL13
+// Jeramie Brehm
+// 12JULY2013
+//Assignment: The Duel - Part II
 
 //game variables
 //players
