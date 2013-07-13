@@ -1,3 +1,7 @@
+//Jeramie Brehm
+//12JULY2013
+//Assignment: JavaScript Practice
+
 // self-executing function
 (function(){
 
@@ -55,7 +59,10 @@
     //--------------------------------------------------------
     console.log("2. concat first and last name");
 
-        //PUT FUNCTION HERE
+        var fullName = function(firstname, lastname){
+			var firstLast = firstname.concat(lastname);
+			return firstLast;		
+		};
 
     console.log(fullName('James', 'Bond'));
 
@@ -63,7 +70,12 @@
     console.log("3. word count");
     var ipsum = "this is test text that is being used as input to a function"
 
-        //PUT FUNCTION HERE
+        var wordCount = function(ipsum){
+			var arr1 = ipsum.split(" ").length;
+			
+		
+			return arr1;
+		};
 
     console.log(wordCount(ipsum));
 
