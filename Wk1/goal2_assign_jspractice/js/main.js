@@ -119,8 +119,7 @@
 						continue;
 					default:
 						continue;
-				}
-				
+				}		
 			}
 			return vCount;
 		};
