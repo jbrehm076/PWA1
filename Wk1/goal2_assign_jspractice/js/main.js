@@ -82,14 +82,45 @@
     //--------------------------------------------------------
     console.log("4. sentence char count");
 
-        //PUT FUNCTION HERE
+        var charCount = function(ipsum){
+			var cCount = ipsum.split("").length;
+			return cCount;
+		};
 
     console.log(charCount(ipsum));
 
     //--------------------------------------------------------
     console.log("5. how many vowels in a word");
-
-        //PUT FUNCTION HERE
+		var vCount = 0;
+        var vowelsInWord = function(JavaScript){
+			
+			var word = 'JavaScript';
+			var filter = word.split("");
+			for (var i=0;i<filter.length;i++){
+				switch(filter[i]){
+					case "a":
+						vCount++;
+						continue;
+					case "e":
+						vCount++;
+						continue;
+					case "i":
+						vCount++;
+						continue;
+					case "o":
+						vCount++;
+						continue;
+					case "u":
+						vCount++;
+						continue;
+					default:
+						continue;
+				}
+				
+			}
+			return vCount;
+		};
+			
 
     console.log(vowelsInWord('JavaScript'));
 
