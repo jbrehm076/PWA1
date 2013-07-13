@@ -50,8 +50,12 @@
 
     console.log("1. avg of an array of numbers");
     var avgNumbers = function(arr){
-
-        //CODE GOES HERE
+		var sumArr = 0;
+		for(var i=0;i<arr.length;i++){
+			sumArr += arr[i]
+		}
+		var avgArr = sumArr / arr.length;
+		return avgArr;        
     };
 
     console.log('avg number = ', avgNumbers([1,2,3,4,5]));
@@ -127,7 +131,24 @@
     //--------------------------------------------------------
     console.log("6. find number and create an array of even or odd numbers");
 
-        //PUT FUNCTION HERE
+        var findNum = function(numArr, booly){
+			var stuff = [];
+			if ((booly == "false") || (booly == null)){
+				for(var i=0;i<numArr.length;i++){
+					if(i % 2 == 0){
+					 	stuff.push(numArr[i]);
+					};
+				};
+			}else{
+				for(var i=0;i<numArr.length;i++){
+					if(i % 2 != 0){
+					 	stuff.push(numArr[i]);
+					};
+				};
+				
+			};
+			return stuff;
+		};
 
     console.log(findNum([31,22,4,67,83,6,5,4]));
     console.log(findNum([31,22,4,67,83,6,5,4], false));
