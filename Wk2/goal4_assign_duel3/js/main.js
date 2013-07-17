@@ -6,14 +6,39 @@
 //players
 //established player arrays - name, health, max damage.
 
-	var fighter1 = ["Beavis",100,25];
-	var fighter2 = ["Butthead",100,25];
+	fighter1 = {name:"Beavis", health:100, damage:25};
+	fighter2 = {name:"Butthead", health:100, damage:25};
 
 
 
-//establish fight function.
+// setup variables for later use
+var fButton	= document.querySelector('#fight_btn');		//creates variable for button id
+var beavis	= document.querySelector('#kabal p');		//creates variable for easier selection
+var butthead = document.querySelector('#kratos p');		//creates variable for easier selection
+console.log('fight button data', fButton);
+beavis.innerHTML = fighter1.health;  					//sets default 100 value for player 1
+butthead.innerHTML = fighter2.health;					//sets default 100 value for player 2
 
-var fightFn = function(p1, p2){
+
+
+for(var i=0, maxRounds=10; i<maxRounds;i++){
+	
+		fButton[i].onclick = function(e){
+			
+			for(var ii = 0, max2=nav.length; ii<max2; ii++){
+				nav[ii].setAttribute('class','navitem');
+			};
+			
+			console.log(this);
+			this.setAttribute('class','navitem active');
+		
+		e.preventDefault();
+		return false;
+		};
+			
+	}; 
+
+/*var fightFn = function(p1, p2){
 	var hp1 = p1[1]; //creating variables that pulls data from array for manipulation within function
 	var hp2 = p2[1];
 	
@@ -58,4 +83,4 @@ var fightFn = function(p1, p2){
 };
 
 fightFn(fighter1, fighter2);
-
+*/
