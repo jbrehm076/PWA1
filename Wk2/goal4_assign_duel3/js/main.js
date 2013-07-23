@@ -78,21 +78,28 @@ document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + 100;
 			case 1:
 			//beavis wins
 			//document.querySelector('#scores').innerHTML.span.style.textAlign = "center";
-			document.querySelector('#scores').innerHTML = fighter1.name.toUpperCase() + " WINS";
+			document.querySelector('#scores').innerHTML = fighter1.name.toUpperCase() + " WINS!!!";
+			document.querySelector('#fight_btn a').innerHTML = "FINISHED!!!";
+			fight_btn.onclick = '';
 			
 			case 2:
 			//butthead wins
 			//document.querySelector('#scores').innerHTML.span.style.textAlign = "center";
-			document.querySelector('#scores').innerHTML = fighter2.name.toUpperCase() + " WINS";
-			
+			document.querySelector('#scores').innerHTML = fighter2.name.toUpperCase() + " WINS!!!";
+			document.querySelector('#fight_btn a').innerHTML = "FINISHED!!!";
+			fight_btn.onclick = '';
 			
 			case 3:
 			//both dead
+			document.querySelector('#scores').innerHTML = " DUAL FATALITY!!!";
+			document.querySelector('#fight_btn a').innerHTML = "FINISHED!!!";
+			fight_btn.onclick = '';
 			
-			//both alive but fight over.
 			case 4:
-			
-		
+			//both alive but fight over.
+			document.querySelector('#scores').innerHTML = "NO WINNER!!!";
+			document.querySelector('#fight_btn a').innerHTML = "FINISHED!!!";
+			fight_btn.onclick = '';
 		
 	
 	
