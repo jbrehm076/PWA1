@@ -39,7 +39,7 @@ function rCheck(p1H,p2H,r){
 		return winner;
 		
 	//check if fight ends in no winner
-	}else if ((p1H > 0) && (p2H > 0) && (r === 10)){
+	}else if ((p1H > 0) && (p2H > 0) && (r >= 10)){
 		winner = 4;
 		return winner;
 		
@@ -50,7 +50,7 @@ function rCheck(p1H,p2H,r){
 	};
 };
 
-
+// established variables for fighter health for easier manipulation
 var p1Health = fighter1.health;
 var p2Health = fighter2.health;
 document.querySelector('#kabal p').innerHTML = fighter1.name + " : " + 100;
@@ -81,6 +81,7 @@ document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + 100;
 			document.querySelector('#scores').innerHTML = fighter1.name.toUpperCase() + " WINS!!!";
 			document.querySelector('#fight_btn a').innerHTML = "FINISHED!!!";
 			fight_btn.onclick = '';
+			break;
 			
 			case 2:
 			//butthead wins
@@ -88,23 +89,22 @@ document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + 100;
 			document.querySelector('#scores').innerHTML = fighter2.name.toUpperCase() + " WINS!!!";
 			document.querySelector('#fight_btn a').innerHTML = "FINISHED!!!";
 			fight_btn.onclick = '';
+			break;
 			
 			case 3:
 			//both dead
 			document.querySelector('#scores').innerHTML = " DUAL FATALITY!!!";
 			document.querySelector('#fight_btn a').innerHTML = "FINISHED!!!";
 			fight_btn.onclick = '';
-			
+			break;
+	
 			case 4:
 			//both alive but fight over.
 			document.querySelector('#scores').innerHTML = "NO WINNER!!!";
 			document.querySelector('#fight_btn a').innerHTML = "FINISHED!!!";
 			fight_btn.onclick = '';
+			break;
 		
-	
-	
-	
-	
 		};
 	round++;
 	};
