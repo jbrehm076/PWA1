@@ -20,7 +20,7 @@ function  dmgGen(dMax){
 
 
 ////////////////Winner Check function//////////////////////
-function rCheck(p1H,p2H,r){
+function winnerCheck(p1H,p2H,r){
 	var winner;
 	
 	//check if p1 is the winner
@@ -60,8 +60,8 @@ document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + 100;
 
 	//round counter
 	var round = 1
-	//event listenter for fight button
-	fight_btn.onclick = function(e){
+	//event listenter for fight button and function
+	fight_btn.onclick = function(fight){
 		
 		//fighter 1 function call to get random damage
 		p1dam = dmgGen(25);
@@ -85,7 +85,7 @@ document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + 100;
 		document.querySelector('#round').innerHTML = "ROUND " + round + " COMPLETE";
 		
 		//switch loop to process returned data from rCheck function 
-		switch(rCheck(p1Health,p2Health,round)){
+		switch(winnerCheck(p1Health,p2Health,round)){
 			
 			//returned winner variable
 			case 1:
@@ -132,6 +132,6 @@ document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + 100;
 	round++;
 	
 	//kill default behavior and prevent bubbling
-	e.preventDefault();
+	fight.preventDefault();
 	return false;
 };
