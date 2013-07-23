@@ -49,7 +49,6 @@ function rCheck(p1H,p2H,r){
 		return winner;
 	};
 };
-console.log(rCheck(10,10,10));
 
 
 var p1Health = fighter1.health;
@@ -62,11 +61,10 @@ document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + 100;
 		
 		var beavis = document.querySelector('#kabal');
 		var butthead = document.querySelector('#kratos p');
+		
+		
 		p1dam = dmgGen(25);
 		p2dam = dmgGen(25);
-		
-		console.log(p1dam);
-		console.log(p2dam);
 		
 		p1Health = p1Health - p2dam;
 		p2Health = p2Health - p1dam;
@@ -79,9 +77,14 @@ document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + 100;
 			
 			case 1:
 			//beavis wins
+			//document.querySelector('#scores').innerHTML.span.style.textAlign = "center";
+			document.querySelector('#scores').innerHTML = fighter1.name.toUpperCase() + " WINS";
 			
 			case 2:
 			//butthead wins
+			//document.querySelector('#scores').innerHTML.span.style.textAlign = "center";
+			document.querySelector('#scores').innerHTML = fighter2.name.toUpperCase() + " WINS";
+			
 			
 			case 3:
 			//both dead
@@ -100,70 +103,3 @@ document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + 100;
 	};
 	//e.preventDefault();
 	//return false;
-
-/*
-// setup variables for later use
-var fButton	= document.querySelector('#fight_btn');		//creates variable for button id			
-var beavis	= document.querySelector('#kabal');		//creates variable for easier selection
-var s1 = document.createTextNode('Beavis: ');
-beavis.appendChild(s1);
-
-//console.log(screenName);
-var butthead = document.querySelector('#kratos p');		//creates variable for easier selection
-beavis.innerHTML = fighter1.health;  					//sets default 100 value for player 1
-butthead.innerHTML = fighter2.health;					//sets default 100 value for player 2
-
-
-
-		
-			
-				//damage randomizer. pulls from data in the fighters assigned array and generates max dmg
-				var p1Dam = Math.floor((Math.random()*fighter1.damage)+1); 
-				var p2Dam = Math.floor((Math.random()*fighter2.damage)+1);
-				
-console.log(p1Dam,p2Dam);
-				//damage and hp calculation; variable rewrites itself for further use in function.
-				beavis.innerHTML = fighter1.health - p2Dam;
-				butthead.innerHTML = fighter2.health - p1Dam;
-				
-console.log(fighter1.health,fighter2.health);				
-				//setup switch for 10 round match dialog
-				var round = i;
-				switch (round){
-	
-	 				//case 0:  //kicks off start battle message
-						
-//		   alert(p1[0] + ": " + p1[1] + " **START** " + p2[0] + ": " + p2[1]);
-		   				//continue; 
-					case 10: //checks round 10 for tie or no winner 
-		   				if ((hp1 >= 0) && (hp2 >= 0)){
-		   	  				alert("No Winner");
-		  				}
-					default:  
-		     			if ((hp1 <= 0)||(hp2 <= 0)){ // compares health pools of fighters
-			   				if (hp1 <= 0){
-		  	   				alert("GAME OVER " + p2[0] + " WINS!!!");
-			   			}else{
-			      			alert("GAME OVER " + p1[0] + " WINS!!!");
-			  		 	}
-		     		}	 
-	    		}
-				if ((hp1 > 0) && (hp2 > 0)){
-		  			alert(p1[0] + ": " + hp1 + " **ROUND " + round.valueOf() + "** "   + p2[0] + ": " + hp2);
-        		}else{
-		   		//break;
-				}
-	 
-	
-
-
-//fightFn(fighter1, fighter2);
-
-console.log("dude");
-//			this.setAttribute('class','navitem active');
-		
-		
-		};
-			
-	};
- */
