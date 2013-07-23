@@ -53,48 +53,70 @@ function rCheck(p1H,p2H,r){
 // established variables for fighter health for easier manipulation
 var p1Health = fighter1.health;
 var p2Health = fighter2.health;
+
+//initial setup for fighter names and health
 document.querySelector('#kabal p').innerHTML = fighter1.name + " : " + 100;
 document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + 100;
 
+	//round counter
 	var round = 1
+	//event listenter for fight button
 	fight_btn.onclick = function(e){
 		
-		var beavis = document.querySelector('#kabal');
-		var butthead = document.querySelector('#kratos p');
-		
-		
+		//fighter 1 function call to get random damage
 		p1dam = dmgGen(25);
+		
+		//fighter 2 function call to get randomized damage
 		p2dam = dmgGen(25);
 		
+		//updates player 1 health after damage and sets up for subsequent rounds.
 		p1Health = p1Health - p2dam;
+		
+		//updates player 2 health after damage and sets up for subsequent rounds.
 		p2Health = p2Health - p1dam;
 		
+		//dom interaction to update fighter 1 name and health display
 		document.querySelector('#kabal p').innerHTML = fighter1.name + " : " + p1Health;
+		
+		//dom interaction to update fighter 2 name and health display
 		document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + p2Health;
+		
+		//dom interaction to update round completion
 		document.querySelector('#round').innerHTML = "ROUND " + round + " COMPLETE";
 		
+		//switch loop to process returned data from rCheck function 
 		switch(rCheck(p1Health,p2Health,round)){
 			
+			//returned winner variable
 			case 1:
+			
 			//beavis wins
-			//document.querySelector('#scores').innerHTML.span.style.textAlign = "center";
 			document.querySelector('#scores').innerHTML = fighter1.name.toUpperCase() + " WINS!!!";
+			
+			//changes fight button innerHTML to finished 
 			document.querySelector('#fight_btn a').innerHTML = "FINISHED!!!";
+			
+			//sets button click to a space to disable it.
 			fight_btn.onclick = '';
 			break;
 			
 			case 2:
 			//butthead wins
-			//document.querySelector('#scores').innerHTML.span.style.textAlign = "center";
 			document.querySelector('#scores').innerHTML = fighter2.name.toUpperCase() + " WINS!!!";
+			//button innerHTML change from fight to finished.
 			document.querySelector('#fight_btn a').innerHTML = "FINISHED!!!";
+			//disables fight button by changing onclick to a space
 			fight_btn.onclick = '';
 			break;
 			
 			case 3:
-			//both dead
+			//both fighters dead
 			document.querySelector('#scores').innerHTML = " DUAL FATALITY!!!";
+			
+			//dom fight buttom changed from fight to finished
 			document.querySelector('#fight_btn a').innerHTML = "FINISHED!!!";
+			
+			//disables onclick listener and prevents use of fight button.
 			fight_btn.onclick = '';
 			break;
 	
@@ -106,7 +128,10 @@ document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + 100;
 			break;
 		
 		};
+	//increment round counter variable	
 	round++;
-	};
-	//e.preventDefault();
-	//return false;
+	
+	//kill default behavior and prevent bubbling
+	e.preventDefault();
+	return false;
+};
