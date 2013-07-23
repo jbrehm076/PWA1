@@ -11,6 +11,73 @@
 
 
 
+////////////////Damage Generator Function/////////////////
+function  dmgGen(dMax){
+	playerDmg = Math.floor((Math.random()*dMax)+1);
+	return playerDmg;	
+};
+
+
+
+////////////////Winner Check function//////////////////////
+function rCheck(p1H,p2H,r){
+	var winner;
+	
+	//check if p1 is the winner
+	if ((p1H > 0) && (p2H <= 0) && (r < 10)){
+		winner = 1;
+		return winner;
+	
+	//check if p2 is the winner
+	}else if ((p2H > 0) && (p1H <= 0) && (r < 10)){
+		winner = 2;
+		return winner;
+	
+	//check if both die before round 10	
+	}else if ((p1H <= 0) && (p2H <= 0) && (r < 10)){
+		winner = 3;
+		return winner;
+		
+	//check if fight ends in no winner
+	}else if ((p1H > 0) && (p2H > 0) && (r === 10)){
+		winner = 4;
+		return winner;
+		
+	//defacto no winner yet with rounds remaining
+	}else{
+		winner = 0;
+		return winner;
+	};
+};
+console.log(rCheck(10,10,10));
+
+
+var p1Health = fighter1.health;
+var p2Health = fighter2.health;
+document.querySelector('#kabal p').innerHTML = fighter1.name + " : " + 100;
+document.querySelector('#kratos p').innerHTML = fighter2.name + " : " + 100;
+
+for(var i=0, maxRounds=10; i<maxRounds;i++){
+	fight_btn.onclick = function(e){
+		var beavis = document.querySelector('#kabal');
+		var butthead = document.querySelector('#kratos p');
+		p1dam = dmgGen(25);
+		p2dam = dmgGen(25);
+		
+		p1Health = p1Health - p2dam;
+		p2Health = p2Health - p1dam;
+		
+	
+	
+	
+	
+	
+	
+	};
+	//e.preventDefault();
+	//return false;
+};
+/*
 // setup variables for later use
 var fButton	= document.querySelector('#fight_btn');		//creates variable for button id			
 var beavis	= document.querySelector('#kabal');		//creates variable for easier selection
@@ -24,8 +91,7 @@ butthead.innerHTML = fighter2.health;					//sets default 100 value for player 2
 
 
 
-		for(var i=0, maxRounds=10; i<maxRounds;i++){
-			fight_btn.onclick = function(e){
+		
 			
 				//damage randomizer. pulls from data in the fighters assigned array and generates max dmg
 				var p1Dam = Math.floor((Math.random()*fighter1.damage)+1); 
@@ -72,8 +138,8 @@ console.log(fighter1.health,fighter2.health);
 console.log("dude");
 //			this.setAttribute('class','navitem active');
 		
-		e.preventDefault();
-		return false;
+		
 		};
 			
-	}; 
+	};
+ */
