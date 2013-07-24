@@ -14,14 +14,15 @@
 var button = document.querySelector('body button');
 var randomNum = Math.floor((Math.random()*10)+1);
 var guessRem = 3;
-var guessCnt = 1;
+var guessCnt = 0;
 
 
 
 function enterKey(){
-	var whichKey;
-		if (key === 13){
-			validate();
+		//if (window.event.keyCode == 13){
+		//	validate();
+		if (window.event.keyCode == 13){
+			button.click();
 		};
 };
 
@@ -31,13 +32,13 @@ function validate(input){
 	
 	if (isNaN(input)){	
 		validity = 0;
-		document.querySelector('#output').innerHTML = "Ah, ah, ah, you have to enter a NUMBER to be able to guess my magic number. Please try again.";
+		document.querySelector('#output').innerHTML = "Ah, ah, ah, you have to enter a NUMBER to be able to guess my magic number. Lets try again in 3 seconds.";
 		return validity;
 		
 	}else if((input < 0) || (input > 10)){
 		
 		validity = 1;
-		document.querySelector('#output').innerHTML = "C'mon, work with me now... the number has to be BETWEEN 1 and 10 for this to work. Please try again.";
+		document.querySelector('#output').innerHTML = "C'mon, work with me now... the number has to be BETWEEN 1 and 10 for this to work. Lets try again in 3 seconds.";
 		return validity;
 		
 	}else{
@@ -63,18 +64,19 @@ var guessV = validate(guessInput);
 		
 		if((guessInput === randomNum) && (guessRem > 0)){
 			console.log("Game Over : Guesses remaining = " + guessRem);
-			button.removeEventListener('click',evaluate,false);
+			killSwitch();
 		
 		}else if((guessInput > randomNum) && (guessRem>0)){
 			guessCnt++;
 			guessRem--;
 			if(guessRem === 0){
 				killSwitch();
-				document.querySelector('#output').innerHTML = "No more guesses left. \n The number was: " + randomNum;
+				document.querySelector('#output').innerHTML = "No more guesses left. The number was: " + randomNum;
 				console.log("Game Over : Guesses remaining = " + guessRem)
 			}else{
 				
 			document.querySelector('#output').innerHTML = "That's too high. Guess: " + guessCnt + ", Remaining: " + guessRem;
+			
 			};
 			
 		
@@ -86,7 +88,7 @@ var guessV = validate(guessInput);
 				document.querySelector('#output').innerHTML = "No more guesses left. \n The number was: " + randomNum;
 				console.log("Game Over : Guesses remaining = " + guessRem)
 			}else{
-			output = "That's too low. Guess: " + guessCnt + ", Remaining: " + guessRem;
+			document.querySelector('#output').innerHTML = "That's too low. Guess: " + guessCnt + ", Remaining: " + guessRem;
 			};
 			
 		}else{
@@ -94,18 +96,18 @@ var guessV = validate(guessInput);
 		};
 		
 	}else{
-		location.reload();
+		setInterval("location.reload()",3000);
 	};
-			
-			
-		
-	
-
 };
 
-//text output // document.getElementById('output').innerHTML
 button.addEventListener('click', evaluate, false);
-//button.addEventListener('keypress', enterKey(), false);
+document.getElementById('input').onkeypress = function(e){
+	
+	if (window.event.keyCode == '13'){
+		evaluate();
+		return false;
+	};
+};
 
 
 
