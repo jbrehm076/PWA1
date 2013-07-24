@@ -1,14 +1,14 @@
 /**
  * GUESSING GAME:
  *
- * Created By: 
- * Date: 
+ * Created By: 	Jeramie Brehm
+ * Date: 		23JUL2013
  * 
  * GUESSING GAME
  */
 
 //Game variables
-(function ()
+(function (){
 
 
 })();
