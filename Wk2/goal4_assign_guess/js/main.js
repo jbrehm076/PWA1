@@ -15,6 +15,7 @@ var button = document.querySelector('body button');
 var randomNum = Math.floor((Math.random()*10)+1);
 var output = document.getElementById('output').innerHTML;
 var guessRem = 3;
+var guessCnt = 1;
 
 function enterKey(){
 	var whichKey;
@@ -51,8 +52,16 @@ function validate(input){
 function evaluate(guess){
 guessInput = parseInt(document.querySelector('#input').value);
 var guessV = validate(guessInput);
+
 	if (guessV === 2){
-		if(guessInput === randomNum){
+		console.log(guessInput);
+		
+		if((guessInput === randomNum) && (guessRem > 0)){
+			console.log("Game Over : Guesses remaining = " + guessRem);
+			button.removeEventListener('click',evaluate,false);
+		
+		}else if((guessInput > randomNum) && (guessRem>0)){
+			output = "That's too high. Guess: " 
 		
 	
 
