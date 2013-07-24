@@ -11,26 +11,21 @@
 (function (){
 
 
-var guessButton = document.querySelector('body button');
+var button = document.querySelector('body button');
+var randomNum = Math.floor((Math.random()*10)+1);
+console.log(randomNum);
 
+function evaluate(guess){
+guessInput = parseInt(document.querySelector('#input').value);	
 
-////////////functions//////////////////
-function inputVal(num){
-
+console.log(guessInput);
 
 };
 
-function randomNum(){
-	var randomNum = Math.floor((Math.random()*10)+1);
-	return randomNum;
-};
-
-function evaluate(){
-console.log('booty');
-};
-console.log(document.querySelector('body button'));
+//text output // document.getElementById('output').innerHTML
+button.addEventListener('click', evaluate, false);
 
 
-guessButton.addEventListener('click', evaluate, false);
+
 
 })();
