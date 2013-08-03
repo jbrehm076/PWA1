@@ -1,6 +1,6 @@
-/*
-     Developed by the JavaScript team at Fullsail
-     Date: 1306
+/*	coded by Jeramie Brehm
+	date: 3 Aug, 2013
+     goal5_assign_validation
 */
 
 (function(){
