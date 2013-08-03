@@ -1,4 +1,5 @@
-/*
+/* 	Coded By Jeramie Brehm
+	Date: 3 Aug 2013
 	PWA1: Goal8: Simple Library App
 */
 
