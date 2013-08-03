@@ -24,7 +24,7 @@
     var validateField = function(inputName){
 
      	if (inputName.name === 'f_username'){
-            var pattern = /^[A-Z][a-zA-Z]\s([A-Z][a-zA-Z]|[A-Z][a-zA-Z]+\s[A-Z][a-zA-Z]+)$/;
+            var pattern = /^[A-Z][a-zA-Z]*\s([A-Z][a-zA-Z]|[A-Z][a-zA-Z]+\s[A-Z][a-zA-Z]+)$/;
 			//
 		}else if(inputName.email === 'f_email'){
 			var pattern = /^[a-zA-Z][a-zA-Z0-9]*@[a-zA-Z][a-zA-Z0-9]*\.[a-z]{2,4}$/;
