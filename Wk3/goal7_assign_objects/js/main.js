@@ -11,6 +11,7 @@ var people = [];
 for (i=0,a=names.length;i<a;i++){
 	var ranNum = Math.floor((Math.random()*names.length)+1);
 	people.splice(1,0,names[ranNum]);
+	names.splice(
 		
 		console.log(people);
 		console.log(names);
